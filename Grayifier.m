@@ -7,15 +7,21 @@
 //
 
 #import "Grayifier.h"
+#include <Carbon/Carbon.h>
+#import "CGSPrivate.h"
 
+extern OSStatus CGSNewConnection(const void **attributes, CGSConnection * id);
 
 @implementation Grayifier
 
-static NSMapTable *mapTable = nil;
+static CGSWindowFilterRef grayscaleFilter;
+static CGSConnection connection;
 
 + (void)load
 {
-	mapTable = [[NSMapTable mapTableWithWeakToStrongObjects] retain];
+	CGSNewConnection(NULL, &connection);
+	CGSNewCIFilterByName(connection, (CFStringRef)@"CIColorControls", &grayscaleFilter);
+	CGSSetCIFilterValuesFromDictionary(connection, grayscaleFilter, (CFDictionaryRef)[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:@"inputSaturation"]);
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(grayify:) name:NSWindowDidResignKeyNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(grayify:) name:NSWindowDidResignMainNotification object:nil];
@@ -25,20 +31,13 @@ static NSMapTable *mapTable = nil;
 }
 
 + (void)grayify:(NSNotification *)note
-{
-	NSWindow *window = [note object];
-	if (![[window colorSpace] isEqual:[NSColorSpace genericGrayColorSpace]])
-		[mapTable setObject:[window colorSpace] forKey:window];
-	[window setColorSpace:[NSColorSpace genericGrayColorSpace]];
+{	
+	CGSAddWindowFilter(connection, [(NSWindow *)[note object] windowNumber], grayscaleFilter, 1 << 2);
 }
 
 + (void)colorize:(NSNotification *)note
 {
-	NSWindow *window = [note object];
-	NSColorSpace *space = [mapTable objectForKey:window];
-	if (!space)
-		space = [NSColorSpace genericRGBColorSpace];
-	[window setColorSpace:[NSColorSpace genericRGBColorSpace]];
+	CGSRemoveWindowFilter(connection, [(NSWindow *)[note object] windowNumber], grayscaleFilter);
 }
 
 @end

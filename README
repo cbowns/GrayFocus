@@ -1,7 +1,5 @@
 You'll need SIMBL: http://www.culater.net/software/SIMBL/SIMBL.php
 
-You'd install this by putting it in ~/Library/Application Support/SIMBL/Plugins, but I don't recommend it even though this seems to sort of work. It creates insane log spew that makes the system thrash.
+Install this by putting it in ~/Library/Application Support/SIMBL/Plugins.
 
-8/5/10 9:54:23 PM	[0x0-0x89089].com.apple.Console[1821]	Thu Aug  5 21:54:23 Unicycle.local Console[1821] <Error>: kCGErrorInvalidOperation: CGSColorProfileCreateRGBColorSpace: Invalid color profile(0x10041e830) id(35), not RGB color model
-
-I'm throwing this up here in case anyone has any idea how to resolve this.
+This thing public domain, just a little 20 minute project.

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6129692E120BC6C000D5EB99 /* Grayifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6129692D120BC6C000D5EB99 /* Grayifier.m */; };
+		61296999120BD20300D5EB99 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61296998120BD20300D5EB99 /* Quartz.framework */; };
+		6129699B120BD20300D5EB99 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6129699A120BD20300D5EB99 /* QuartzCore.framework */; };
+		61296A2C120BD23A00D5EB99 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61296A2B120BD23A00D5EB99 /* Carbon.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -20,6 +23,10 @@
 		32DBCF630370AF2F00C91783 /* GrayFocus_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayFocus_Prefix.pch; sourceTree = "<group>"; };
 		6129692C120BC6C000D5EB99 /* Grayifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grayifier.h; sourceTree = "<group>"; };
 		6129692D120BC6C000D5EB99 /* Grayifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grayifier.m; sourceTree = "<group>"; };
+		61296998120BD20300D5EB99 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		6129699A120BD20300D5EB99 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		61296A2B120BD23A00D5EB99 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		61296AEC120BD2B300D5EB99 /* CGSPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSPrivate.h; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* GrayFocus.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrayFocus.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -31,6 +38,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				61296999120BD20300D5EB99 /* Quartz.framework in Frameworks */,
+				6129699B120BD20300D5EB99 /* QuartzCore.framework in Frameworks */,
+				61296A2C120BD23A00D5EB99 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +64,9 @@
 			children = (
 				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
 				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+				61296998120BD20300D5EB99 /* Quartz.framework */,
+				6129699A120BD20300D5EB99 /* QuartzCore.framework */,
+				61296A2B120BD23A00D5EB99 /* Carbon.framework */,
 			);
 			name = "Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -105,6 +118,7 @@
 		32C88E010371C26100C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				61296AEC120BD2B300D5EB99 /* CGSPrivate.h */,
 				32DBCF630370AF2F00C91783 /* GrayFocus_Prefix.pch */,
 			);
 			name = "Other Sources";
@@ -189,6 +203,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -205,6 +220,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GrayFocus_Prefix.pch;
